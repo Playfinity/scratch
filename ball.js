@@ -28,7 +28,7 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['c', 'when ball catch occurs', 'ballCatch'],
+            ['w', 'when ball catch occurs', 'ballCatch'],
         ]
     };
 
