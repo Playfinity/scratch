@@ -1,11 +1,5 @@
-//importScripts("https://cloud01.playfinity.io/socket.io/socket.io.js");
-//importScripts("https://code.jquery.com/jquery-1.11.1.js");
-
-new (function() {
-    var ext = this;
-
-    //var consoleId = "33333";
-    //var socket = io("https://cloud01.playfinity.io" + (consoleId != null ? ("?consoleId=" + consoleId) : "" ) );
+(function(ext) {
+    var alarm_went_off = false; // This becomes true after the alarm goes off
 
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
@@ -13,30 +7,34 @@ new (function() {
     // Status reporting code
     // Use this to report missing hardware, plugin or unsupported browser
     ext._getStatus = function() {
-        return { status: 2, msg: 'Ready'};
+        return {status: 2, msg: 'Ready'};
     };
 
-    // Functions for block with type 'w' will get a callback function when a
-    // ball catch event occurs.
-    //ext.ballCatch = function(callback) {
-    //    console.log('Waiting for ball catch event');
-    //    socket.on('event', function(msg){
-    //        callback("ballEvent");
-    //    });
-    //};
+    ext.set_alarm = function(time) {
+       window.setTimeout(function() {
+           alarm_went_off = true;
+       }, time*1000);
+    };
 
-    ext.power = function(base, exponent) {
-        return Math.pow(base, exponent);
+    ext.when_alarm = function() {
+       // Reset alarm_went_off if it is true, and return true
+       // otherwise, return false.
+       if (alarm_went_off === true) {
+           alarm_went_off = false;
+           return true;
+       }
+
+       return false;
     };
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-      //      ['w', 'when ball catch occurs', 'ballCatch'],
-            ['r', '%n ^ %n', 'power', 2, 3],
+            ['', 'run alarm after %n seconds', 'set_alarm', '2'],
+            ['h', 'when alarm goes off', 'when_alarm'],
         ]
     };
 
     // Register the extension
-    ScratchExtensions.register('Playfinity ball events', descriptor, ext);
-})();
+    ScratchExtensions.register('Alarm extension', descriptor, ext);
+})({});
