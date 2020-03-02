@@ -1,4 +1,8 @@
+
+
+
 (function(ext) {
+    var ext = this;
     var alarm_went_off = false; // This becomes true after the alarm goes off
 
     // Cleanup function when the extension is unloaded
@@ -37,4 +41,4 @@
 
     // Register the extension
     ScratchExtensions.register('Alarm extension', descriptor, ext);
-})({});
+})();
