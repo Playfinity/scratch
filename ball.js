@@ -14,10 +14,9 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.set_alarm = function(time) {
-       window.setTimeout(function() {
-           alarm_went_off = true;
-       }, time*1000);
+    ext.listen_name = function(GivenName) {
+       // do some remote registration
+       alert('Register listener');
     };
 
     ext.when_alarm = function() {
@@ -34,11 +33,11 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['', 'run alarm after %n seconds', 'set_alarm', '2'],
+            ['', 'listen for ball throws from', 'listen_name', 'my ball name'],
             ['h', 'when alarm goes off', 'when_alarm'],
         ]
     };
 
     // Register the extension
-    ScratchExtensions.register('Alarm extension', descriptor, ext);
+    ScratchExtensions.register('Ball extension', descriptor, ext);
 })();
