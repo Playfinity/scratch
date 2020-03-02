@@ -1,5 +1,4 @@
-
-
+importScripts('https://cloud01.playfinity.io/socket.io/socket.io.js');
 
 (function(ext) {
     var ext = this;
@@ -16,10 +15,10 @@
 
     ext.listen_name = function(GivenName) {
        // do some remote registration
-       alert('Register listener');
+       alert('Action: Register listener');
     };
 
-    ext.when_alarm = function() {
+    ext.when_throw = function() {
        // Reset alarm_went_off if it is true, and return true
        // otherwise, return false.
        if (alarm_went_off === true) {
@@ -34,7 +33,7 @@
     var descriptor = {
         blocks: [
             ['', 'listen for ball throws from %s', 'listen_name', 'name'],
-            ['h', 'when alarm goes off', 'when_alarm'],
+            ['h', 'when ball is thrown', 'when_throw'],
         ]
     };
 
