@@ -1,4 +1,4 @@
-importScripts('https://cloud01.playfinity.io/socket.io/socket.io.js');
+//importScripts('https://cloud01.playfinity.io/socket.io/socket.io.js');
 
 (function(ext) {
     var ext = this;
