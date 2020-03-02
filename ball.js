@@ -14,9 +14,9 @@ importScripts('https://cloud01.playfinity.io/socket.io/socket.io.js');
     const soundJumpCount20 = new Audio("https://labs.playfinity.io/cloud/sounds/VO_20_jumps.wav");
     const soundJumpCount50 = new Audio("https://labs.playfinity.io/cloud/sounds/VO_50_jumps.wav");
     const soundJumpCount100 = new Audio("https://labs.playfinity.io/cloud/sounds/VO_100_jumps.wav");
-*/
     var consoleName;
     var socket;
+*/
 
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
