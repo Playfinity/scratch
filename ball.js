@@ -29,9 +29,9 @@ importScripts('https://cloud01.playfinity.io/socket.io/socket.io.js');
     ext.listen_name = function(givenName) {
       // do some remote registration
       alert('Action: Register listener for ' + givenName);
+        /*
       consoleName = givenName.length == 0 ? null : givenName;
 
-        /*
       socket = io("https://cloud01.playfinity.io" + (consoleName != null ? ("?consoleName=" + consoleName) : "" ) );
 
       socket.on('event', function(event) {
