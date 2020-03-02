@@ -15,6 +15,7 @@ importScripts('https://cloud01.playfinity.io/socket.io/socket.io.js');
     const soundJumpCount100 = new Audio("https://labs.playfinity.io/cloud/sounds/VO_100_jumps.wav");
 
     var consoleName;
+    var socket;
 
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
@@ -30,9 +31,9 @@ importScripts('https://cloud01.playfinity.io/socket.io/socket.io.js');
       alert('Action: Register listener for ' + givenName);
       consoleName = givenName.length == 0 ? null : givenName;
 
-      var socket = io("https://cloud01.playfinity.io" + (consoleName != null ? ("?consoleName=" + consoleName) : "" ) );
+      socket = io("https://cloud01.playfinity.io" + (consoleName != null ? ("?consoleName=" + consoleName) : "" ) );
 
-      socket.on('event', function(event){
+      socket.on('event', function(event) {
         if (event.event == "throw")
           soundThrow.play();
         else if (event.event == "catch")
@@ -50,21 +51,6 @@ importScripts('https://cloud01.playfinity.io/socket.io/socket.io.js');
           else if(rotation >= 150)
             soundJump180.play();
         }
-
-        $('#messages').append($('<li>').text(JSON.stringify(event)));
-
-        var randomtop = Math.floor(Math.random() * 450 - 150);
-        var randomleft = Math.floor(Math.random() * 450 - 150);
-        if (randomtop < 0) randomtop = 0;
-        if (randomleft < 0) randomleft = 0;
-        //var randomzindex = Math.floor(Math.random() * 450 - 150);
-        /*
-        $('#eventObjects').append(
-          $('<span class="dot"><h1>Round Dot</h1></span>').text("HM!").css({
-            "margin-top": randomtop,
-            "margin-left": randomleft
-          })
-        );*/
       });
     };
 
