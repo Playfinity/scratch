@@ -33,7 +33,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['', 'listen for ball throws from %s', 'listen_name', 'my ball name'],
+            ['', 'listen for ball throws from %s', 'listen_name', 'name'],
             ['h', 'when alarm goes off', 'when_alarm'],
         ]
     };
