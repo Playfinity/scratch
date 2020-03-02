@@ -34,6 +34,7 @@ importScripts('https://cloud01.playfinity.io/socket.io/socket.io.js');
       socket = io("https://cloud01.playfinity.io" + (consoleName != null ? ("?consoleName=" + consoleName) : "" ) );
 
       socket.on('event', function(event) {
+        /*
         if (event.event == "throw")
           soundThrow.play();
         else if (event.event == "catch")
@@ -50,7 +51,7 @@ importScripts('https://cloud01.playfinity.io/socket.io/socket.io.js');
             soundJump360.play();
           else if(rotation >= 150)
             soundJump180.play();
-        }
+        }*/
       });
     };
 
