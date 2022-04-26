@@ -1,0 +1,8 @@
+{
+	"extensionName": "Playfinity Cloud",
+	"extensionPort": 8899,
+	"blockSpecs": [
+		[" ", "Listen to ball %s", "subscribe", "name"],
+		["w", "Wait for throw", "waitForThrow"],
+	]
+}
